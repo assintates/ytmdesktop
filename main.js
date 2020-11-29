@@ -10,6 +10,7 @@ const {
     systemPreferences,
     nativeTheme,
     screen,
+    session,
     shell,
     dialog,
 } = require('electron')
