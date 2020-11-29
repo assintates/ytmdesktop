@@ -10,7 +10,6 @@ const {
     systemPreferences,
     nativeTheme,
     screen,
-    session,
     shell,
     dialog,
 } = require('electron')
@@ -19,7 +18,7 @@ const { ElectronBlocker } = require('@cliqz/adblocker-electron')
 const fetch = require('cross-fetch')
 
 ElectronBlocker.fromPrebuiltAdsAndTracking(fetch).then((blocker) => {
-    blocker.enableBlockingInSession(session.defaultSession)
+    blocker.enableBlockingInSession(BrowserWindow.defaultSession)
 })
 
 const path = require('path')
