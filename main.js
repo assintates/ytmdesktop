@@ -14,12 +14,7 @@ const {
     dialog,
 } = require('electron')
 
-const { ElectronBlocker } = require('@cliqz/adblocker-electron')
-const fetch = require('cross-fetch')
-
-ElectronBlocker.fromPrebuiltAdsAndTracking(fetch).then((blocker) => {
-    blocker.enableBlockingInSession(BrowserWindow.defaultSession)
-})
+const { blockWindowAds, adBlocker } = require('electron-ad-blocker')
 
 const path = require('path')
 const isDev = require('electron-is-dev')
@@ -227,6 +222,13 @@ function createWindow() {
     }
 
     mainWindow = new BrowserWindow(browserWindowConfig)
+
+    const options = {
+        verbose: true,
+        logger: electronLog,
+    }
+    electronLog.info('Starting AdBlocker')
+    blockWindowAds(mainWindow, options)
 
     mainWindow.webContents.session.webRequest.onBeforeSendHeaders(
         {
