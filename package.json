@@ -54,6 +54,8 @@
         "node-fetch": "^2.6.0",
         "node-vibrant": "^3.1.5",
         "qrcode-generator": "^1.4.4",
+        "@cliqz/adblocker-electron": "^1.18.8",
+        "cross-fetch": "^3.0.6",
         "register-scheme": "0.0.2",
         "scribble": "0.0.5",
         "socket.io": "^2.3.0",
